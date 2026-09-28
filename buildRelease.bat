@@ -23,22 +23,28 @@ rem    but not always
 rem LICENSE is the license file
 rem README is the readme file
 
-set GAMEDIR=xxxxx
-set GAMEDATA="GameData\"
-set VERSIONFILE=%GAMEDIR%.version
-set LICENSE=License.txt
-set README=ReadMe.md
+set GAMEDATA=GameData
+set REPODIR=REPOSoftTech
+set GAMEDIR=DeepFreeze
+set VERSIONFILE=%GAMEDIR%Continued.version
+set PLUGINS="%GAMEDATA%\%REPODIR%\%GAMEDIR%\Plugins"
+
+set LICENSE=LICENSE
+set README=README.md
 
 set RELEASEDIR=d:\Users\jbb\release
-set ZIP="c:\Program Files\7-zip\7z.exe"
+set ZIP="d:\Program Files\7-zip\7z.exe"
 
 rem Copy files to GameData locations
 
-copy /Y "%1%2" "%GAMEDATA%\%GAMEDIR%\Plugins"
-copy /Y %VERSIONFILE% %GAMEDATA%\%GAMEDIR%
+copy /Y "%1%2" "%PLUGINS%"
+copy /Y "%1%3".pdb "%PLUGINS%""
 
-if "%LICENSE%" NEQ "" copy /y  %LICENSE% %GAMEDATA%\%GAMEDIR%
-if "%README%" NEQ "" copy /Y %README% %GAMEDATA%\%GAMEDIR%
+copy /Y %VERSIONFILE% %GAMEDATA%\%REPODIR%\%GAMEDIR%
+
+
+if "%LICENSE%" NEQ "" copy /y  %LICENSE% %GAMEDATA%\%REPODIR%\%GAMEDIR%
+if "%README%" NEQ "" copy /Y %README% %GAMEDATA%\%REPODIR%\%GAMEDIR%
 
 rem Get Version info
 

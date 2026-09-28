@@ -47,7 +47,13 @@
     <Reference Include="BackgroundResources">
       <HintPath>$(KSPDIR)\GameData\REPOSoftTech\BackgroundResources\BackgroundResources.dll</HintPath>
     </Reference>
+    <Reference Include="ClickThroughBlocker">
+      <HintPath>R:\KSP\KSP_1.12.5-dev\GameData\000_ClickThroughBlocker\Plugins\ClickThroughBlocker.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="ToolbarControl">
+      <HintPath>R:\KSP\KSP_1.12.5-dev\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIs\DFGameEvents.cs" />
@@ -83,6 +89,7 @@
     <Compile Include="APIs\SMWrapper.cs" />
     <Compile Include="APIs\TRWrapper.cs" />
     <Compile Include="APIs\USIWrapper.cs" />
+    <Compile Include="RegisterToolbar.cs" />
     <Compile Include="SettingsParms.cs" />
     <Compile Include="Textures.cs" />
     <Compile Include="VesselInfo.cs" />

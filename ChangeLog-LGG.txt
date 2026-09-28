@@ -24,3 +24,20 @@ Changelog
 	Fixed problem in status window which causes huge FPS drop with a large number of kerbals.  On a 9850X3D system with 20 kerbals in freeze chambers, caused a 72% drop in FPS, from 180 down to 70
 	Replaced obsolete call to KerbalPortraitGallery.ActiveCrew with Reflection code to get the protected list KerbalPortraitGallery.activeCrew (a bit of an optimization)
 
+1.32.0
+	Release version
+	Cleanup of code
+	Added support for ClickThroughBlocker
+	Added support for ToolbarController, removing about 1000 lines of code and simplifying the mod
+		Both require new dependencies of the above
+	Renamed mod to DeepFreezeUpdated, but DLL name stays the same for CKAN support
+
+
+1.33.0
+	Reverted all the changes in 1.32.0
+	Added new support for the ClickThroughBlocker
+	Added new support for the Toolbarcontroller, replacing the old code which was controlling the use of either the toolbar or the stock app launcher.
+	Removed option for the toolbar from the options screen, as it's now controlled by the toolbarcontroller mod
+
+1.33.0.1
+	Disabled a number of unused variables and methods

@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using ClickThroughFix;
 
 namespace DF
 {
@@ -89,7 +90,7 @@ namespace DF
         internal double chgECHeatsettingsTimer;
         private bool switchNextUpdate = false;
 
-        public bool Useapplauncher;
+        //public bool Useapplauncher;
         private double currentTime;
 
         #region Cache Strings
@@ -286,7 +287,7 @@ namespace DF
             DFvslLstUpd = Mathf.Round((DFWINDOW_WIDTH - 28f) * .18f);
             DFvslRT = Mathf.Round((DFWINDOW_WIDTH - 28f) * .12f);
 
-            Useapplauncher = DeepFreeze.Instance.DFsettings.UseAppLauncher;
+            //Useapplauncher = DeepFreeze.Instance.DFsettings.UseAppLauncher;
 
             RSTUtils.Utilities.setScaledScreen();
 
@@ -295,17 +296,9 @@ namespace DF
                 ApplicationLauncher.AppScenes.SPACECENTER | ApplicationLauncher.AppScenes.FLIGHT |
                 ApplicationLauncher.AppScenes.MAPVIEW | ApplicationLauncher.AppScenes.SPH | ApplicationLauncher.AppScenes.VAB |
                 ApplicationLauncher.AppScenes.TRACKSTATION,
-                GameDatabase.Instance.GetTexture("REPOSoftTech/DeepFreeze/Icons/DeepFreezeOn", false),
-                GameDatabase.Instance.GetTexture("REPOSoftTech/DeepFreeze/Icons/DeepFreezeOff", false),
-                GameScenes.FLIGHT, GameScenes.EDITOR, GameScenes.SPACECENTER, GameScenes.TRACKSTATION);
-
-            //If Settings wants to use ToolBar mod, check it is installed and available. If not set the TST Setting to use Stock.
-            if (!ToolbarManager.ToolbarAvailable && !Useapplauncher)
-            {
-                Useapplauncher = true;
-            }
-
-            DFMenuAppLToolBar.Start(Useapplauncher);
+                "REPOSoftTech/DeepFreeze/Icons/DeepFreezeOn",
+                "REPOSoftTech/DeepFreeze/Icons/DeepFreezeOff"); //,
+                //  GameScenes.FLIGHT, GameScenes.EDITOR, GameScenes.SPACECENTER, GameScenes.TRACKSTATION);
 
             RSTUtils.Utilities.Log_Debug("DeepFreezeGUI END startup");
         }
@@ -354,6 +347,8 @@ namespace DF
                     }
                 }
             }
+
+#if false
             if (Useapplauncher == false || !HighLogic.LoadedSceneIsFlight)
             {
                 return;
@@ -377,6 +372,7 @@ namespace DF
                                                              ApplicationLauncher.AppScenes.TRACKSTATION);
                 }
             }
+#endif
         }
 
         #region GUI
@@ -390,13 +386,13 @@ namespace DF
             {
 
                 DFVSwindowPos.ClampToScreen();
-                DFVSwindowPos = GUILayout.Window(VSwindowID, DFVSwindowPos, windowVS, cacheautoLOC_DF_00004, GUILayout.ExpandWidth(false),
+                DFVSwindowPos = ClickThruBlocker.GUILayoutWindow(VSwindowID, DFVSwindowPos, windowVS, cacheautoLOC_DF_00004, GUILayout.ExpandWidth(false),
                     GUILayout.ExpandHeight(true), GUILayout.Width(320), GUILayout.MinHeight(100));
             }
             if (showUnabletoSwitchVessel && !switchVesselManual)
             {
                 DFVSFwindowPos.ClampToScreen();
-                DFVSFwindowPos = GUILayout.Window(VSFwindowID, DFVSFwindowPos, windowVSF, cacheautoLOC_DF_00005, GUILayout.ExpandWidth(false),
+                DFVSFwindowPos = ClickThruBlocker.GUILayoutWindow(VSFwindowID, DFVSFwindowPos, windowVSF, cacheautoLOC_DF_00005, GUILayout.ExpandWidth(false),
                     GUILayout.ExpandHeight(true), GUILayout.Width(320), GUILayout.MinHeight(100));
             }
             if (switchVesselManual)
@@ -415,13 +411,13 @@ namespace DF
             {
                 GUI.skin = HighLogic.Skin;
                 DFwindowPos.ClampInsideScreen();
-                DFwindowPos = GUILayout.Window(windowID, DFwindowPos, windowDF, cacheautoLOC_DF_00006, GUILayout.ExpandWidth(true),
+                DFwindowPos = ClickThruBlocker.GUILayoutWindow(windowID, DFwindowPos, windowDF, cacheautoLOC_DF_00006, GUILayout.ExpandWidth(true),
                         GUILayout.ExpandHeight(true), GUILayout.MinWidth(200), GUILayout.MinHeight(250));
 
                 if (showKACGUI)
                 {
                     DFKACwindowPos.ClampInsideScreen();
-                    DFKACwindowPos = GUILayout.Window(KACwindowID, DFKACwindowPos, windowKAC, cacheautoLOC_DF_00007, GUILayout.ExpandWidth(true),
+                    DFKACwindowPos = ClickThruBlocker.GUILayoutWindow(KACwindowID, DFKACwindowPos, windowKAC, cacheautoLOC_DF_00007, GUILayout.ExpandWidth(true),
                         GUILayout.ExpandHeight(true), GUILayout.MinWidth(360), GUILayout.MinHeight(150));
                 }
             }

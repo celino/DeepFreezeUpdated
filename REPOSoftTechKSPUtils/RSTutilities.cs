@@ -69,6 +69,7 @@ namespace RSTUtils
 			}
 		}
 
+#if false
 		public static bool GameModeisEditor
 		{
 			get
@@ -106,6 +107,7 @@ namespace RSTUtils
 				return SetModeFlag();
 			} 
 		}
+#endif
 
 		public static GameState SetModeFlag()
 		{
@@ -1124,7 +1126,8 @@ namespace RSTUtils
 				strToolTipText = GUI.tooltip;
 			}
 		}
-		
+
+#if false
 		// The following method is taken from RasterPropMonitor as-is. Which is covered by GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 		public static string WordWrap(string text, int maxLineLength)
 		{
@@ -1238,13 +1241,13 @@ namespace RSTUtils
 				}
 			}
 		}
+#endif
+		#endregion GUI&Window
 
-        #endregion GUI&Window
+		#region ConfigNodes
+		// Get Config Node Values out of a config node Methods
 
-        #region ConfigNodes
-        // Get Config Node Values out of a config node Methods
-
-        public static Guid GetNodeValue(ConfigNode confignode, string fieldname)
+		public static Guid GetNodeValue(ConfigNode confignode, string fieldname)
 		{
 			if (confignode.HasValue(fieldname))
 			{
@@ -1280,10 +1283,11 @@ namespace RSTUtils
 		#region Time
 		//Formatting time functions
 
-		private static int y, d, h, m;
 		private static List<string> parts = new List<string>();
 		//Format a Time double variable into format "xxxx:year xxxx:days xxxx:hours xxxx:mins x:xx:secs"
 		//Future expansion required to format to different formats.
+#if false
+		private static int y, d, h, m;
 		public static String formatTime(double seconds)
 		{
 			y = (int)(seconds / (6.0 * 60.0 * 60.0 * 426.08));
@@ -1329,6 +1333,7 @@ namespace RSTUtils
 			}
 			return "0s";
 		}
+#endif
 
 		private static string outputstring;
 		private static int[] datestructure = new int[5];
@@ -1375,18 +1380,20 @@ namespace RSTUtils
 			TimeWarp.SetRate(0, false);
 		}
 
-		#endregion Time
+#endregion Time
 
-		#region Strings
-		/// <summary>
-		/// Removes a String A from String B.
-		/// </summary>
+#region Strings
+/// <summary>
+/// Removes a String A from String B.
+/// </summary>
+#if false
 		internal static string RemoveSubStr(string B, string A)
 		{
 			StringBuilder b = new StringBuilder(B);
 			b.Replace(A, String.Empty);
 			return b.ToString();
 		}
+#endif
 
 		public enum ISRUStatus
 		{
@@ -1398,10 +1405,11 @@ namespace RSTUtils
 
 		}
 
-		private static ISRUStatus returnStatus;
 		/// <summary>
 		/// Returns a Status Indicating the Status of a ISRU ModuleResourceConverter, given that it's actual status can be active, but not actually doing anything.
 		/// </summary>
+#if false
+		private static ISRUStatus returnStatus;
 		internal static ISRUStatus GetModResConverterStatus(ModuleResourceConverter tmpRegRc)
 		{
 			returnStatus = ISRUStatus.Inactive;
@@ -1415,11 +1423,11 @@ namespace RSTUtils
 			if (tmpRegRc.status.Contains("%")) return ISRUStatus.Active;			
 			return returnStatus;
 		}
-
+#endif
 		#endregion Strings
 
 		#region ModsInstalled
-
+#if false
 		private static Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
 		internal static bool IsRTInstalled
@@ -1519,7 +1527,7 @@ namespace RSTUtils
 		    }
 			return assembly != null;
 		}
-
+#endif
 		#endregion ModsInstalled
 
 		#region Logging

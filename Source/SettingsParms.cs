@@ -223,21 +223,12 @@ namespace DF
         [GameParameters.CustomParameterUI("#autoLOC_DF_00179", autoPersistance = true, toolTip = "#autoLOC_DF_00180")] //#autoLOC_DF_00179 = Editor Filter #autoLOC_DF_00180 = Turn the DeepFreeze Editor filter Category on and off.
         public bool EditorFilter = true;
 
-        [GameParameters.CustomParameterUI("#autoLOC_DF_00181", toolTip = "#autoLOC_DF_00182")] //#autoLOC_DF_00181 = Use Stock App Launcher Icon #autoLOC_DF_00182 = If on, the Stock Application launcher will be used,\nif off will use Blizzy Toolbar if installed.
-        public bool UseAppLToolbar = true;
 
         [GameParameters.CustomParameterUI("#autoLOC_DF_00183", toolTip = "#autoLOC_DF_00184")] //#autoLOC_DF_00183 = Extra Debug Logging #autoLOC_DF_00184 = Turn this On to capture lots of extra information\ninto the KSP log for reporting a problem.
         public bool DebugLogging = false;
         
         public override bool Interactible(MemberInfo member, GameParameters parameters)
         {
-            if (member.Name == "UseAppLToolbar")
-            {
-                if (RSTUtils.ToolbarManager.ToolbarAvailable)
-                    return true;
-                return false;
-            }
-
             return true;
         }
     }

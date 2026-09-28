@@ -9,6 +9,8 @@ rem    but not always
 
 set H=%KSPDIR%
 
+set H=R:\KSP\KSP_1.12.5-DeepFreeze
+
 set GAMEDATA=GameData
 set REPODIR=REPOSoftTech
 set GAMEDIR=DeepFreeze
