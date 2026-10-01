@@ -41,3 +41,12 @@ Changelog
 
 1.33.0.1
 	Disabled a number of unused variables and methods
+
+1.33.0.2
+	Renamed patch files and deleted unnecessary one which was folded into the above one
+	Fixed a nullref when launching from the editor
+	Localized the Freezer Temp Status in the PAW
+	Localized the R/T Connected in the PAW
+	Updated localization files for all included languages using translate.google.com
+1.33.0.3
+	Fixed issue with transferring an unfrozen kerbal to a command pod where the SAS wasn't being reset properly

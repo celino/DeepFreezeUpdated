@@ -76,7 +76,7 @@ namespace DF
             node.AddValue("VesselName", vesselName);
             node.AddValue("partID", partID);
             node.AddValue("seatIdx", seatIdx);
-            node.AddValue("seatName", seatName);
+            node.AddValue("seatName", seatName != null? seatName : "");
             node.AddValue("experienceTraitName", experienceTraitName);
 
             return node;

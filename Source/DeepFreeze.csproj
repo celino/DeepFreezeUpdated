@@ -90,6 +90,7 @@
     <Compile Include="APIs\TRWrapper.cs" />
     <Compile Include="APIs\USIWrapper.cs" />
     <Compile Include="RegisterToolbar.cs" />
+    <Compile Include="ResetSASOnCrewTransfer.cs" />
     <Compile Include="SettingsParms.cs" />
     <Compile Include="Textures.cs" />
     <Compile Include="VesselInfo.cs" />
