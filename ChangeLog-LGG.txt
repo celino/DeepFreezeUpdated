@@ -48,5 +48,6 @@ Changelog
 	Localized the Freezer Temp Status in the PAW
 	Localized the R/T Connected in the PAW
 	Updated localization files for all included languages using translate.google.com
-1.33.0.3
+
+1.33.0.3 (unreleased)
 	Fixed issue with transferring an unfrozen kerbal to a command pod where the SAS wasn't being reset properly
