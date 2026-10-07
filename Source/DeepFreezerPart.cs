@@ -337,6 +337,7 @@ namespace DF
         [KSPField(isPersistant = false, guiActive = true, guiName = "#autoLOC_DF_00065", guiUnits = "#autoLOC_DF_00066", guiFormat = "F3")] //#autoLOC_DF_00065 = Current EC Usage #autoLOC_DF_00066 = \u0020p/sec
         public float FrznChargeUsage;
 
+
         public float DFIFrznChargeUsage
         {
             get
@@ -1405,7 +1406,7 @@ namespace DF
                         if (OnGoingECMsg != null) ScreenMessages.RemoveMessage(OnGoingECMsg);
                         //Have resource
                         RSTUtils.Utilities.requireResource(vessel, EC, ECreqd, true, true, false, out ResAvail, out resTotal);
-                        FrznChargeUsage = (float)ResAvail;
+                        FrznChargeUsage = (float)ResAvail / (float)timeperiod;
                         RSTUtils.Utilities.Log_Debug("DeepFreezer Consumed Freezer EC " + ECreqd + " units");
                         timeSinceLastECtaken = (float)currenttime;
                         deathCounter = currenttime;
@@ -1422,7 +1423,7 @@ namespace DF
                             if (RSTUtils.Utilities.requireResource(vessel, EC, ECreqd, false, true, false, out ResAvail, out resTotal))
                             {
                                 RSTUtils.Utilities.requireResource(vessel, EC, ECreqd, true, true, false, out ResAvail, out resTotal);
-                                FrznChargeUsage = (float)ResAvail;
+                                FrznChargeUsage = (float)ResAvail / (float)timeperiod ;
                                 timeSinceLastECtaken = (float)currenttime;
                                 deathCounter = currenttime;
                             }
